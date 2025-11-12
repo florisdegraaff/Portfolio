@@ -1,0 +1,6 @@
+{
+  "path": "./lib/sanity/**/*.{ts,tsx}",
+  "schema": "./lib/sanity/schema.json",
+  "generates": "./lib/sanity/sanity.types.ts"
+}
+
