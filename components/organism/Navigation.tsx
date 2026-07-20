@@ -1,6 +1,28 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export default function Navigation() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-[rgba(238,241,238,0.9)] px-6 backdrop-blur-[6px]">
+    <header
+      className={`sticky top-0 z-10 px-6 transition-[background-color,backdrop-filter] duration-200 ${
+        scrolled
+          ? "bg-zinc-900/90 backdrop-blur-md"
+          : "bg-transparent backdrop-blur-md"
+      }`}
+    >
       <nav className="mx-auto flex max-w-[1080px] items-center justify-between py-[18px] max-sm:flex-col max-sm:items-start max-sm:gap-3">
         <a href="#" className="font-[var(--display)] text-[1.05rem] font-bold">
           Floris de Graaff
@@ -9,7 +31,7 @@ export default function Navigation() {
           <li>
             <a
               href="#about"
-              className="text-ink-muted transition-colors duration-150 hover:text-pine"
+              className="text-primary-100 transition-colors duration-150 hover:text-primary-500"
             >
               About
             </a>
@@ -17,7 +39,7 @@ export default function Navigation() {
           <li>
             <a
               href="#projects"
-              className="text-ink-muted transition-colors duration-150 hover:text-pine"
+              className="text-primary-100 transition-colors duration-150 hover:text-primary-500"
             >
               Projects
             </a>
@@ -25,23 +47,23 @@ export default function Navigation() {
           <li>
             <a
               href="#experience"
-              className="text-ink-muted transition-colors duration-150 hover:text-pine"
+              className="text-primary-100 transition-colors duration-150 hover:text-primary-500"
             >
               Experience
             </a>
           </li>
           <li>
             <a
-              href="#mistakes"
-              className="text-ink-muted transition-colors duration-150 hover:text-pine"
+              href="#lessons"
+              className="text-primary-100 transition-colors duration-150 hover:text-primary-500"
             >
-              Mistakes
+              Lessons
             </a>
           </li>
           <li>
             <a
               href="#contact"
-              className="text-ink-muted transition-colors duration-150 hover:text-pine"
+              className="text-primary-100 transition-colors duration-150 hover:text-primary-500"
             >
               Contact
             </a>

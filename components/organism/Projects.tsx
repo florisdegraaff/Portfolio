@@ -14,7 +14,7 @@ export default async function Projects() {
   )
 
   return (
-    <section id="projects" className="border-t border-line px-6 py-[72px]">
+    <section id="projects" className="px-6 py-[72px]">
       <div className="mx-auto max-w-[1080px]">
         <SectionLabel title="03 / projects" />
         <Title size="h2">Projects</Title>

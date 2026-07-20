@@ -4,11 +4,11 @@ import Title from "@/components/atom/Title";
 
 export default function Contact() {
   return (
-    <section id="contact" className="border-t border-line px-6 py-[72px] text-left">
+    <section id="contact" className="px-6 py-[72px] text-left">
       <div className="mx-auto max-w-[1080px]">
         <SectionLabel title="06 / contact" />
         <Title size="h2">Contact</Title>
-        <p className="mb-2 max-w-[62ch] text-ink-muted">
+        <p className="mb-2 max-w-[62ch] text-primary-100">
           Open to freelance / full-time work. Reach out below.
         </p>
         <Button

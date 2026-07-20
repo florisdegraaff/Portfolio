@@ -51,7 +51,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
   }, [activeTech, projects])
 
   if (projects.length === 0) {
-    return <p className="mt-6 text-ink-muted">No projects published yet.</p>
+    return <p className="mt-6 text-primary-100">No projects published yet.</p>
   }
 
   return (
@@ -64,8 +64,8 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
             aria-pressed={activeTech === null}
             className={`border px-4 py-2.5 font-[var(--mono)] text-[0.85rem] transition-colors duration-150 ${
               activeTech === null
-                ? "border-pine bg-pine text-white"
-                : "border-line bg-surface text-ink hover:border-pine"
+                ? "border-primary-500 bg-primary-500 text-white"
+                : "border-zinc-900 bg-zinc-800 text-primary-100 hover:border-primary-500"
             }`}
           >
             All
@@ -83,8 +83,8 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                 aria-pressed={isActive}
                 className={`border px-4 py-2.5 font-[var(--mono)] text-[0.85rem] transition-colors duration-150 ${
                   isActive
-                    ? "border-pine bg-pine text-white"
-                    : "border-line bg-surface text-ink hover:border-pine"
+                    ? "border-primary-500 bg-primary-500 text-white"
+                    : "border-zinc-900 bg-zinc-800 text-primary-100 hover:border-primary-500"
                 }`}
               >
                 {tech}
@@ -95,7 +95,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
       </ul>
 
       {filtered.length === 0 ? (
-        <p className="mt-6 text-ink-muted">
+        <p className="mt-6 text-primary-100">
           No projects use {activeTech}.
         </p>
       ) : (
@@ -115,10 +115,10 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
             return (
               <article
                 key={project._id}
-                className={`${artboardClasses} flex flex-col gap-3 px-[26px] pt-[26px] pb-6`}
+                className={`${artboardClasses} border-zinc-900 bg-zinc-800 before:border-primary-500 after:border-primary-500 flex flex-col gap-3 px-[26px] pt-[26px] pb-6`}
               >
-                <SectionLabel title={label} variant="artboard" />
-                <div className="relative aspect-[16/10] border border-line bg-bg">
+                <SectionLabel title={label} />
+                <div className="relative aspect-[16/10] border border-zinc-900 bg-zinc-900">
                   {imageUrl ? (
                     <Image
                       src={imageUrl}
@@ -139,7 +139,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                   {project.name}
                 </Title>
                 {project.description ? (
-                  <p className="text-[0.95rem] text-ink-muted">
+                  <p className="text-[0.95rem] text-primary-100">
                     {project.description}
                   </p>
                 ) : null}
@@ -148,7 +148,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="border border-line px-2.5 py-1 font-[var(--mono)] text-[0.7rem] tracking-[0.04em] text-pine-dark"
+                        className="bg-primary-500 px-2.5 py-1 font-[var(--mono)] text-[0.7rem] tracking-[0.04em] text-primary-100"
                       >
                         {tech}
                       </span>
@@ -162,7 +162,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border-b border-rust text-ink hover:text-rust"
+                        className="border-b border-primary-500 text-primary-100 hover:text-primary-400"
                       >
                         Live Demo
                       </a>
@@ -172,7 +172,7 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
                         href={project.repoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border-b border-rust text-ink hover:text-rust"
+                        className="border-b border-primary-500 text-primary-100 hover:text-primary-400"
                       >
                         Code
                       </a>

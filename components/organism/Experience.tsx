@@ -4,7 +4,7 @@ import ExperienceCard from "@/components/molecule/ExperienceCard";
 
 export default function Experience() {
   return (
-    <section id="experience" className="border-t border-line px-6 py-[72px]">
+    <section id="experience" className="px-6 py-[72px]">
       <div className="mx-auto max-w-[1080px]">
         <SectionLabel title="04 / experience" />
         <Title size="h2">Experience</Title>

@@ -1,0 +1,136 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.primary {
+  top: -8rem;
+  right: -6rem;
+  width: min(42rem, 90vw);
+  height: min(42rem, 90vw);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-primary-500) 45%, transparent) 0%,
+    transparent 70%
+  );
+  animation: float-primary 47s ease-in-out infinite;
+}
+
+.secondary {
+  bottom: -10rem;
+  left: -8rem;
+  width: min(36rem, 85vw);
+  height: min(36rem, 85vw);
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-secondary-500) 40%, transparent) 0%,
+    transparent 70%
+  );
+  animation: float-secondary 52s ease-in-out infinite;
+}
+
+/* Top-right half — irregular path, returns to start */
+@keyframes float-primary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  15% {
+    transform: translate3d(-14vw, 12vh, 0) scale(1.05);
+  }
+  30% {
+    transform: translate3d(-4vw, 26vh, 0) scale(1.02);
+  }
+  45% {
+    transform: translate3d(-18vw, 8vh, 0) scale(1.07);
+  }
+  60% {
+    transform: translate3d(-8vw, 32vh, 0) scale(1.03);
+  }
+  75% {
+    transform: translate3d(-20vw, 18vh, 0) scale(1.06);
+  }
+  90% {
+    transform: translate3d(-6vw, 4vh, 0) scale(1.01);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* Bottom-left half — different rhythm so they never sync */
+@keyframes float-secondary {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+  12% {
+    transform: translate3d(12vw, -10vh, 0) scale(1);
+  }
+  28% {
+    transform: translate3d(6vw, -24vh, 0) scale(1.06);
+  }
+  42% {
+    transform: translate3d(18vw, -6vh, 0) scale(1.02);
+  }
+  58% {
+    transform: translate3d(4vw, -30vh, 0) scale(1.05);
+  }
+  72% {
+    transform: translate3d(16vw, -16vh, 0) scale(1.01);
+  }
+  88% {
+    transform: translate3d(8vw, -4vh, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+}
+
+/* Scroll-driven: simple vertical parallax only */
+@keyframes parallax-primary {
+  from {
+    transform: translate3d(0, 67vh, 0) scale(1.08);
+  }
+  to {
+    transform: translate3d(0, -12vh, 0) scale(1);
+  }
+}
+
+@keyframes parallax-secondary {
+  from {
+    transform: translate3d(0, -67vh, 0) scale(1);
+  }
+  to {
+    transform: translate3d(0, 18vh, 0) scale(1.05);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .primary {
+    animation: parallax-primary linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0% 100%;
+  }
+
+  .secondary {
+    animation: parallax-secondary linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0% 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary,
+  .secondary {
+    animation: none;
+  }
+}

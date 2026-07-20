@@ -1,3 +1,5 @@
+import styles from "./Title.module.css";
+
 type TitleSize = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 type TitleProps = {
@@ -18,8 +20,23 @@ const sizeClasses: Record<TitleSize, string> = {
   h6: "text-base",
 };
 
+const glitchSizes: TitleSize[] = ["h1", "h2"];
+
 export default function Title({ size, children, className }: TitleProps) {
   const Tag = size;
+
+  if (glitchSizes.includes(size) && typeof children === "string") {
+    const classes = [styles.glitch, styles[size], className]
+      .filter(Boolean)
+      .join(" ");
+
+    return (
+      <Tag className={classes} data-text={children}>
+        {children}
+      </Tag>
+    );
+  }
+
   const classes = [baseClasses, sizeClasses[size], className]
     .filter(Boolean)
     .join(" ");

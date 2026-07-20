@@ -1,0 +1,83 @@
+.button {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 9999px;
+  padding: 2px;
+  text-decoration: none;
+  transition: transform 150ms ease-in-out;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  /* Square sized to the button width so rotation never leaves gaps on wide buttons */
+  width: 100%;
+  aspect-ratio: 1;
+  min-height: 100%;
+  transform: translate(-50%, -50%) scale(1.5);
+  animation: spin 2.5s linear infinite;
+}
+
+.button:hover::before {
+  animation-play-state: paused;
+}
+
+.primary::before {
+  background: conic-gradient(
+    from 0deg,
+    var(--color-primary-300),
+    var(--color-primary-500),
+    var(--color-primary-700),
+    var(--color-primary-500),
+    var(--color-primary-300)
+  );
+}
+
+.secondary::before {
+  background: conic-gradient(
+    from 0deg,
+    var(--color-secondary-300),
+    var(--color-secondary-500),
+    var(--color-secondary-700),
+    var(--color-secondary-500),
+    var(--color-secondary-300)
+  );
+}
+
+.label {
+  position: relative;
+  display: block;
+  border-radius: inherit;
+  background: #18181b;
+  color: #f9f4fc;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 22px;
+}
+
+@keyframes spin {
+  from {
+    /* 1.5 ≈ covers the diagonal at 45° so wide buttons stay fully filled */
+    transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.5) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button::before {
+    animation: none;
+  }
+}

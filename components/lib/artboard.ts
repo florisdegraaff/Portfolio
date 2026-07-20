@@ -1,2 +1,2 @@
 export const artboardClasses =
-  "relative border border-line bg-surface before:pointer-events-none before:absolute before:-top-px before:-left-px before:h-3.5 before:w-3.5 before:border-t-2 before:border-l-2 before:border-pine before:content-[''] after:pointer-events-none after:absolute after:-right-px after:-bottom-px after:h-3.5 after:w-3.5 after:border-r-2 after:border-b-2 after:border-pine after:content-['']";
+  "relative border before:pointer-events-none before:absolute before:-top-px before:-left-px before:h-3.5 before:w-3.5 before:border-t-2 before:border-l-2 before:content-[''] after:pointer-events-none after:absolute after:-right-px after:-bottom-px after:h-3.5 after:w-3.5 after:border-r-2 after:border-b-2 after:content-['']";

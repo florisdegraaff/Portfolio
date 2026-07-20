@@ -3,11 +3,11 @@ import Title from "@/components/atom/Title";
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-line px-6 py-[72px]">
+    <section id="about" className="px-6 py-[72px]">
       <div className="mx-auto max-w-[1080px]">
         <SectionLabel title="02 / about" />
         <Title size="h2">About</Title>
-        <p className="mb-2 max-w-[62ch] text-ink-muted">
+        <p className="mb-2 max-w-[62ch] text-primary-100">
           I'm a frontend developer with 3+ years of experience turning 
           designs into interfaces people actually enjoy using. I care as 
           much about how a site looks as how it runs — clean, accessible 

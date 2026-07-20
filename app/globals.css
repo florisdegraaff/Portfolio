@@ -1,13 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #eef1ee;
+  --bg: #18181b; /* zinc-900 */
   --surface: #ffffff;
-  --ink: #1b1f23;
-  --ink-muted: #5b6b66;
   --line: #d3d9d4;
-  --pine: #2d6a4f;
-  --pine-dark: #1f4d39;
   --rust: #e4572e;
 
   --display: var(--font-display), sans-serif;
@@ -18,22 +14,40 @@
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
-  --color-ink: var(--ink);
-  --color-ink-muted: var(--ink-muted);
   --color-line: var(--line);
-  --color-pine: var(--pine);
-  --color-pine-dark: var(--pine-dark);
   --color-rust: var(--rust);
+
+  --color-primary-100: #f9f4fc;
+  --color-primary-200: #e0c8ef;
+  --color-primary-300: #c69edf;
+  --color-primary-400: #ab75cf;
+  --color-primary-500: #904ebc;
+  --color-primary-600: #723c95;
+  --color-primary-700: #522d6a;
+  --color-primary-800: #331d41;
+  --color-primary-900: #140c19;
+
+  --color-secondary-100: #f2dedc;
+  --color-secondary-200: #e4bdb8;
+  --color-secondary-300: #d79b95;
+  --color-secondary-400: #c97a71;
+  --color-secondary-500: #bc594e;
+  --color-secondary-600: #96473e;
+  --color-secondary-700: #71352f;
+  --color-secondary-800: #4b241f;
+  --color-secondary-900: #261210;
 }
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    background: var(--bg);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-600) transparent;
   }
 
   body {
-    background: var(--bg);
-    color: var(--ink);
+    background: transparent;
+    color: #f9f4fc; /* primary-100 */
     font-family: var(--body);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
@@ -56,6 +70,31 @@
   :focus-visible {
     outline: 2px solid var(--rust);
     outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary-600);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-500);
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
   }
 }
 

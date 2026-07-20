@@ -2,7 +2,7 @@ import About from "@/components/organism/About";
 import Contact from "@/components/organism/Contact";
 import Experience from "@/components/organism/Experience";
 import Hero from "@/components/organism/Hero";
-import Mistakes from "@/components/organism/Mistakes";
+import Lessons from "@/components/organism/Lessons";
 import Projects from "@/components/organism/Projects";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <About />
       <Projects />
       <Experience />
-      <Mistakes />
+      <Lessons />
       <Contact />
     </main>
   );
